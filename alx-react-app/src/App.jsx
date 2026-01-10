@@ -43,15 +43,14 @@ function App() {
   return (
     <div className="App">
       <UserProfile
-        name="Alex"
-        age={30} // Numbers are passed inside curly braces
-        bio="A software developer who loves React."
+        name="Alice"
+        age="25"
+        bio="Loves hiking and photography"
       />
     </div>
   );
 }
 
-export default App;
 
 
 export default App;

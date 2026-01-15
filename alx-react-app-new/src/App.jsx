@@ -39,9 +39,9 @@ function App() {
     </>
   )
 }
-function App() {
+function  didi(){
   return (
-    <div className="App">
+    <div className="didi">
       <UserProfile
         name="Alice"
         age="25"

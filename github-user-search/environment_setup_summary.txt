@@ -1,0 +1,5 @@
+
+Environment Setup:
+- Created a .env file in the root directory.
+- Added VITE_APP_GITHUB_API_KEY to the .env file.
+- Provided instructions on how to use import.meta.env.VITE_APP_GITHUB_API_KEY in your API service files.

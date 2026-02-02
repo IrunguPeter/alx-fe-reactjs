@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { searchUsers } from '../services/githubService';
 
 const Search = () => {
   const [username, setUsername] = useState('');
+  const [location, setLocation] = useState('');
+  const [minRepos, setMinRepos] = useState('');
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -12,8 +14,8 @@ const Search = () => {
     setError(null);
     setUsers([]);
     try {
-      const response = await axios.get(`https://api.github.com/search/users?q=${searchUsername}`);
-      setUsers(response.data.items);
+      const usersData = await searchUsers(searchUsername, location, minRepos);
+      setUsers(usersData);
     } catch (err) {
       setError('An error occurred while fetching data.');
     } finally {
@@ -37,6 +39,20 @@ const Search = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Enter GitHub username"
+          className="border p-2 rounded w-full"
+        />
+        <input
+          type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          placeholder="Location (e.g., London)"
+          className="border p-2 rounded w-full"
+        />
+        <input
+          type="number"
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
+          placeholder="Min Repositories"
           className="border p-2 rounded w-full"
         />
         <button type="submit" className="bg-blue-500 text-white p-2 rounded">

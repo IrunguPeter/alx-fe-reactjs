@@ -11,3 +11,20 @@ export const fetchUserData = async (username) => {
     throw error;
   }
 };
+
+export const searchUsers = async (searchText, location, minRepos) => {
+  try {
+    let query = `q=${searchText}`;
+    if (location) {
+      query += `+location:${location}`;
+    }
+    if (minRepos) {
+      query += `+repos:>=${minRepos}`;
+    }
+    const response = await axios.get(`${GITHUB_URL}/search/users?${query}`);
+    return response.data.items;
+  } catch (error) {
+    console.error('Error searching users:', error);
+    throw error;
+  }
+};

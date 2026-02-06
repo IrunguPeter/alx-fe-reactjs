@@ -12,3 +12,10 @@ export const searchUsers = async (query) => {
     const response = await gitHupApi.get(`/search/users?=${query}`);
     return response.data.items;
 };
+
+export const fetchUserData = async (username) => {
+  const response = await axios.get(
+    `https://api.github.com/users/${username}`
+  );
+  return response.data;
+};

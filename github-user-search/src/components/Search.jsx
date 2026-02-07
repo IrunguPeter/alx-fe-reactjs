@@ -103,7 +103,7 @@ function Search() {
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg shadow-md border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-[1.02] cursor-pointer"
+            className="flex items-center gap-4 bg-indigo-50 p-4 rounded-lg shadow-md border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-[1.02] cursor-pointer"
           >
             <img
               src={user.avatar_url}

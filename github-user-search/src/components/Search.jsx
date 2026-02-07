@@ -62,12 +62,12 @@ function Search() {
     <div className="max-w-3xl mx-auto p-4">
       <form
         onSubmit={handleSearch}
-        className="grid gap-4 md:grid-cols-3 bg-white p-4 rounded-lg shadow"
+        className="grid gap-4 md:grid-cols-3 bg-gray-100 p-4 rounded-lg shadow border"
       >
         <input
           type="text"
           placeholder="Username"
-          className="border p-2 rounded"
+          className="border border-gray-300 p-2 rounded"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -75,7 +75,7 @@ function Search() {
         <input
           type="text"
           placeholder="Location"
-          className="border p-2 rounded"
+          className="border border-gray-300 p-2 rounded"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
@@ -83,14 +83,14 @@ function Search() {
         <input
           type="number"
           placeholder="Min Repos"
-          className="border p-2 rounded"
+          className="border border-gray-300 p-2 rounded"
           value={minRepos}
           onChange={(e) => setMinRepos(e.target.value)}
         />
 
         <button
           type="submit"
-          className="md:col-span-3 bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="md:col-span-3 bg-blue-500 text-white py-2 rounded shadow-md hover:bg-blue-600"
         >
           Search
         </button>
@@ -103,7 +103,7 @@ function Search() {
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex items-center gap-4 bg-gray-100 p-4 rounded"
+            className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg shadow-md border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-[1.02] cursor-pointer"
           >
             <img
               src={user.avatar_url}
@@ -117,7 +117,7 @@ function Search() {
                 href={user.html_url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-600"
+                className="text-blue-500 hover:underline"
               >
                 View Profile
               </a>
@@ -129,7 +129,7 @@ function Search() {
       {users.length > 0 && (
         <button
           onClick={loadMore}
-          className="mt-6 bg-gray-800 text-white px-4 py-2 rounded"
+          className="mt-6 bg-blue-500 text-white px-4 py-2 rounded shadow-md hover:bg-blue-600"
         >
           Load More
         </button>

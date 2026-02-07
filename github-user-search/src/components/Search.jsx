@@ -10,6 +10,16 @@ function Search() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
 
+  const fetchUserData = async ({ query, location, minRepos, page }) => {
+    try {
+      const results = await searchUsers({ query, location, minRepos, page });
+      return results;
+    } catch (err) {
+      console.error("Error fetching user data:", err);
+      throw err; // Re-throw to be handled by the caller
+    }
+  };
+
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -17,7 +27,7 @@ function Search() {
     setPage(1);
 
     try {
-      const results = await searchUsers({
+      const results = await fetchUserData({
         query,
         location,
         minRepos,
@@ -35,14 +45,17 @@ function Search() {
     const nextPage = page + 1;
     setPage(nextPage);
 
-    const results = await searchUsers({
-      query,
-      location,
-      minRepos,
-      page: nextPage,
-    });
-
-    setUsers((prev) => [...prev, ...results]);
+    try {
+      const results = await fetchUserData({
+        query,
+        location,
+        minRepos,
+        page: nextPage,
+      });
+      setUsers((prev) => [...prev, ...results]);
+    } catch {
+      setError(true);
+    }
   };
 
   return (

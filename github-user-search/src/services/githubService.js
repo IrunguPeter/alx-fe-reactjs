@@ -27,3 +27,9 @@ export const searchUsers = async ({ query, location, minRepos, page }) => {
 
   return usersWithDetails;
 };
+
+export const getUserRepos = async (username) => {
+  const response = await axios.get(`https://api.github.com/users/${username}/repos`);
+  return response.data;
+};
+

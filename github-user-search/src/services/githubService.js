@@ -7,7 +7,7 @@ export const searchUsers = async ({ query, location, minRepos, page }) => {
   if (minRepos) q += ` repos:>=${minRepos}`;
 
   const response = await axios.get(
-    `https://api.github.com/search/users`,
+    "https://api.github.com/search/users",
     {
       params: {
         q,

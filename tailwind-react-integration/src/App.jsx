@@ -29,7 +29,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <div className="min-h-screen w-full bg-slate-200 flex items-center justify-center" >
+      <div user-profile className="min-h-screen w-full bg-slate-200 flex items-center justify-center" >
         <UserProfile />
       </div>
     </>

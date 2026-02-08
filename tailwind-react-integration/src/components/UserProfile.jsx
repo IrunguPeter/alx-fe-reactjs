@@ -1,9 +1,9 @@
 function UserProfile() {
   return (
-    <div className="bg-gray-100 p-8 mx-auto my-20 rounded-lg sm:p-4 max-w-xs shadow-lg md:p-8 md:max-w-sm">
+    <div className="bg-gray-100 p-8 mx-auto my-20 rounded-lg sm:p-4 max-w-xs shadow-lg md:p-8 hover:shadow-xl md:max-w-sm">
       <img src="https://via.placeholder.com/150" alt="User" 
-      className="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 sm:w-24 sm:h-24 md:w-36 md:h-36 border-white shadow-sm"/>
-      <h1 className="text-xl text-blue-800 my-4 sm:text-lg md:text-xl">John Doe</h1>
+      className="rounded-full w-36 h-36 mx-auto mb-4 hover:scale-110 object-cover border-4 sm:w-24 sm:h-24 md:w-36 md:h-36 border-white shadow-sm transition-transform duration-300 ease-in-out"/>
+      <h1 className="text-xl text-blue-800 my-4 sm:text-lg md:text-xl hover:text-blue-500">John Doe</h1>
       <p className="text-gray-600 text-base sm:text-sm md:text-base">Developer at Example Co. Loves to write code and explore new technologies.</p>
     </div>
   );

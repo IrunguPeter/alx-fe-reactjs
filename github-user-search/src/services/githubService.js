@@ -6,16 +6,10 @@ export const searchUsers = async ({ query, location, minRepos, page }) => {
   if (location) q += ` location:${location}`;
   if (minRepos) q += ` repos:>=${minRepos}`;
 
-  const response = await axios.get(
-    "https://api.github.com/search/users",
-    {
-      params: {
-        q,
-        page,
-        per_page: 10,
-      },
-    }
-  );
+  // Construct the URL with query parameters directly embedded, including '?q='
+  const url = `https://api.github.com/search/users?q=${encodeURIComponent(q)}&page=${page}&per_page=10`;
+
+  const response = await axios.get(url);
 
   // Fetch detailed info for each user
   const usersWithDetails = await Promise.all(

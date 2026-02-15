@@ -97,7 +97,7 @@ function Search() {
       </form>
 
       {loading && <p className="mt-4">Loading...</p>}
-      {error && <p className="mt-4 text-red-500">No users found</p>}
+      {error && <p className="mt-4 text-red-500">Looks like we cant find the user</p>}
 
       <div className="grid gap-4 mt-6">
         {users.map((user) => (
